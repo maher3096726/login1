@@ -18,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 CORS(app)
 # ===================== Firebase =====================
-FIREBASE_URL = "https://hims-89bfb-default-rtdb.firebaseio.com/students.json"
+FIREBASE_URL = os.environ.get("MY_FIREBASE_LINK")
 
 def save_to_firebase(student_data, image_path_card=None, image_path_id=None):
     """حفظ البيانات في Firebase"""
