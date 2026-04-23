@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}معلومات المعهد{% endblock %}
+
+{% block content %}
+<div class="app-bar">
+    <button class="back-btn" onclick="location.href='/'">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+    <h1>معلومات المعهد</h1>
+    <div style="width: 40px;"></div>
+</div>
+
+<div class="content">
+    <!-- شعار المعهد -->
+    <div class="text-center" style="display: flex; justify-content: center; margin: 20px 0;">
+        <img src="{{ url_for('static', filename='images/image.jpg') }}" alt="شعار المعهد" style="max-width: 30%; border-radius: 15px;">
+    </div>
+    
+    <h2 class="text-center text-primary" style="display: flex; justify-content: center; margin: 20px 0;">المعهد العالي للعلوم الإدارية ببلقاس</h2>
+    <p class="text-center" style="color: #666; display: flex; justify-content: center; margin: 20px 0;">Higher Institute of Management Science, Belqas</p>
+    
+    <!-- نبذة عن المعهد -->
+    <div class="card">
+        <h3 class="text-danger text-center">نبذة عن المعهد</h3>
+        <p>يُعد المعهد العالي للعلوم الإدارية ببلقاس من المعاهد الرائدة في مجال التعليم الإداري والتجاري، حيث يهدف إلى إعداد كوادر إدارية وتجارية مؤهلة لتلبية احتياجات سوق العمل المحلي والإقليمي.</p>
+    </div>
+    
+    <!-- الرؤية والرسالة -->
+    <div class="card">
+        <h3 class="text-success text-center">الرؤية</h3>
+        <p>الريادة والتميز في التعليم الإداري والمساهمة الفاعلة في تنمية المجتمع من خلال تخريج كوادر إدارية متميزة وقادرة على المنافسة.</p>
+        
+        <h3 class="text-warning text-center" style="margin-top: 15px;">الرسالة</h3>
+        <p>تقديم تعليم عالي الجودة في المجالات الإدارية والتجارية، وتعزيز البحث العلمي، وخدمة المجتمع المحلي، وإعداد خريجين مؤهلين علمياً ومهنياً وأخلاقياً.</p>
+    </div>
+    
+    <!-- الأقسام العلمية -->
+    <div class="card">
+        <h3 class="text-center" style="color: #d32f2f;">الأقسام العلمية</h3>
+        <div style="margin-top: 10px;">
+            <div style="background: #e3f2fd; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+                <i class="fas fa-briefcase" style="color: #1976d2;"></i> <strong>قسم إدارة الأعمال</strong> - إدارة عامة، تسويق، تمويل، موارد بشرية
+            </div>
+            <div style="background: #e8f5e9; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+                <i class="fas fa-chart-line" style="color: #388e3c;"></i> <strong>قسم المحاسبة</strong> - محاسبة مالية، محاسبة إدارية، مراجعة
+            </div>
+            <div style="background: #fff3e0; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+                <i class="fas fa-laptop-code" style="color: #f57c00;"></i> <strong>قسم نظم المعلومات الإدارية</strong> - تحليل نظم، قواعد بيانات
+            </div>
+            <div style="background: #f3e5f5; padding: 10px; border-radius: 10px;">
+                <i class="fas fa-shopping-cart" style="color: #9c27b0;"></i> <strong>قسم التجارة الإلكترونية</strong> - تسويق إلكتروني، تجارة دولية
+            </div>
+        </div>
+    </div>
+    
+    <!-- معلومات الاتصال -->
+    <div class="card">
+        <h3 class="text-center" style="color: #00796b;">معلومات الاتصال</h3>
+        <div style="margin-top: 10px;">
+            <p><i class="fas fa-map-marker-alt" style="color: #d32f2f;"></i> العنوان: بلقاس - محافظة الدقهلية - مصر</p>
+            <p><i class="fas fa-phone" style="color: #1976d2;"></i> الهاتف: 055-2345678</p>
+            <p><i class="fas fa-envelope" style="color: #388e3c;"></i> البريد الإلكتروني: info@himsb.edu.eg</p>
+            <p><i class="fas fa-globe" style="color: #f57c00;"></i> الموقع: https://himsb.edu.eg</p>
+        </div>
+    </div>
+    
+    <!-- الأسئلة الشائعة -->
+    <h3 class="text-center text-danger" style="margin: 20px 0 10px;">الأسئلة الشائعة</h3>
+    <div id="faqList" class="faq-list"></div>
+    
+    <!-- أزرار التنقل -->
+    <div class="button-row" style="margin: 20px 0;">
+        <button class="btn btn-primary" onclick="window.open('https://himsb.edu.eg', '_blank')">
+            <i class="fas fa-globe"></i> زيارة الموقع الرسمي
+        </button>
+        <button class="btn btn-success" onclick="location.href='/'">
+            <i class="fas fa-home"></i> الرئيسية
+        </button>
+    </div>
+</div>
+
+<script>
+    async function loadFAQ() {
+        try {
+            const response = await fetch('/api/faq');
+            const faqs = await response.json();
+            
+            const faqList = document.getElementById('faqList');
+            faqList.innerHTML = '';
+            
+            const colors = ['#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#c2185b', '#00796b', '#5d4037', '#0288d1'];
+            
+            faqs.forEach((faq, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'faq-btn';
+                btn.style.borderRight = `4px solid ${colors[index % colors.length]}`;
+                btn.innerHTML = `
+                    <i class="fas fa-question-circle" style="color: ${colors[index % colors.length]}"></i>
+                    <span style="flex: 1; text-align: right;">${faq.question}</span>
+                    <i class="fas fa-chevron-left" style="color: #ccc;"></i>
+                `;
+                btn.onclick = () => {
+                    window.location.href = `/faq_detail?q=${encodeURIComponent(faq.question)}&a=${encodeURIComponent(faq.answer)}`;
+                };
+                faqList.appendChild(btn);
+            });
+        } catch (error) {
+            console.error('خطأ في تحميل الأسئلة:', error);
+        }
+    }
+    
+    loadFAQ();
+</script>
+{% endblock %}
