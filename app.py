@@ -13,7 +13,7 @@ from flask_cors import CORS
 
 
 app = Flask(__name__)
-app.secret_key = 'hims_secret_key_2024'
+app.secret_key = 'd22b57f7d2c6a83c08766f886cb9c827'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 CORS(app)
