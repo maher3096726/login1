@@ -1,0 +1,686 @@
+/* style.css - نسخة محسنة وأكثر احترافية ومتوافقة مع جميع الأجهزة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* حاوية التطبيق - متجاوبة بالكامل */
+.app-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    min-height: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* للشاشات الكبيرة (كمبيوتر) */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 550px;
+        border-radius: 36px;
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .app-container {
+        max-height: 95vh;
+        border-radius: 24px;
+    }
+}
+
+/* ==================== شريط التطبيق ==================== */
+.app-bar {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.app-bar .back-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-bar .back-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+.app-bar h1 {
+    font-size: 18px;
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+@media (min-width: 768px) {
+    .app-bar h1 {
+        font-size: 20px;
+    }
+}
+
+.app-bar-red {
+    background: linear-gradient(135deg, #d32f2f, #c62828);
+}
+
+.app-bar-green {
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+}
+
+/* ==================== المحتوى الرئيسي ==================== */
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8fafc;
+    scroll-behavior: smooth;
+}
+
+/* تخصيص شريط التمرير */
+.content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ==================== الأزرار ==================== */
+.btn {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Tajawal', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .btn {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #d32f2f, #c62828);
+    color: white;
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+    color: white;
+    box-shadow: 0 4px 10px rgba(56, 142, 60, 0.3);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #d32f2f, #d32f2f);
+    color: white;
+    box-shadow: 0 4px 10px rgba(245, 124, 0, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==================== البطاقات ==================== */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 24px;
+        margin-bottom: 20px;
+        border-radius: 24px;
+    }
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== حقول الإدخال ==================== */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 14px;
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.input-group input:read-only {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #334155;
+}
+
+.input-group small {
+    display: block;
+    font-size: 11px;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* ==================== معاينة الصورة ==================== */
+.image-preview {
+    width: 100%;
+    min-height: 200px;
+    background: #f8fafc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 2px dashed #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .image-preview {
+        min-height: 220px;
+    }
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.image-preview-placeholder {
+    text-align: center;
+    color: #94a3b8;
+    padding: 30px;
+}
+
+.image-preview-placeholder i {
+    font-size: 48px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* ==================== مؤشر التحميل ==================== */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading.active {
+    display: flex;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #1976d2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    background: transparent;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==================== التنبيهات ==================== */
+.alert {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    margin-bottom: 0;
+    display: none;
+    z-index: 1100;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .alert {
+        left: auto;
+        right: 20px;
+        max-width: 400px;
+        top: 20px;
+    }
+}
+
+.alert.success {
+    display: block;
+    background: #22c55e;
+    color: white;
+    border-right: none;
+}
+
+.alert.error {
+    display: block;
+    background: #ef4444;
+    color: white;
+    border-right: none;
+}
+
+.alert.info {
+    display: block;
+    background: #3b82f6;
+    color: white;
+    border-right: none;
+}
+
+.alert.warning {
+    display: block;
+    background: #f59e0b;
+    color: white;
+    border-right: none;
+}
+
+/* ==================== الأسئلة الشائعة ==================== */
+.faq-list {
+    list-style: none;
+}
+
+.faq-item {
+    margin-bottom: 12px;
+}
+
+.faq-btn {
+    width: 100%;
+    padding: 16px 18px;
+    background: white;
+    border: none;
+    border-radius: 16px;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.faq-btn:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.faq-btn i:first-child {
+    font-size: 22px;
+}
+
+.faq-btn span {
+    flex: 1;
+}
+
+/* ==================== صفوف الأزرار ==================== */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.button-row .btn {
+    width: auto;
+    min-width: 140px;
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .button-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .button-row .btn {
+        width: 100%;
+    }
+}
+
+/* ==================== مؤشر الخطوات ==================== */
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 12px;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 10px 8px;
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step i {
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+.step.active {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+}
+
+.step.completed {
+    background: #22c55e;
+    color: white;
+}
+
+/* ==================== وضع الظلام ==================== */
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+}
+
+body.dark-mode .app-container {
+    background: #1e293b;
+}
+
+body.dark-mode .content {
+    background: #0f172a;
+}
+
+body.dark-mode .card {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .input-group label {
+    color: #cbd5e1;
+}
+
+body.dark-mode .input-group input,
+body.dark-mode .input-group textarea {
+    background: #334155;
+    border-color: #475569;
+    color: #f1f5f9;
+}
+
+body.dark-mode .input-group input:read-only {
+    background: #1e293b;
+    color: #94a3b8;
+}
+
+body.dark-mode .input-group small {
+    background: #334155;
+    color: #94a3b8;
+}
+
+body.dark-mode .faq-btn {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .faq-btn:hover {
+    background: #334155;
+}
+
+body.dark-mode .step {
+    background: #334155;
+    color: #94a3b8;
+}
+
+body.dark-mode .image-preview {
+    background: #1e293b;
+    border-color: #475569;
+}
+
+/* ==================== تأثيرات إضافية ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.card, .btn, .faq-item {
+    animation: fadeIn 0.4s ease backwards;
+}
+
+/* تحسين عرض النصوص الطويلة */
+.answer-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* تنسيق رسائل الخطأ */
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* تأثير الموجة للزر */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* شريط التمرير للعناصر */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #334155;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #64748b;
+}
+
+/* تنسيق الحقول المطلوبة */
+.input-group.required label:after {
+    content: " *";
+    color: #ef4444;
+}
+
+/* أزرار المساعدة */
+.help-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+/* تنسيق خاص للشاشات الكبيرة جداً */
+@media (min-width: 1200px) {
+    .app-container {
+        max-width: 600px;
+    }
+}
+
+/* تحسين عرض الصور في المعاينة */
+.image-preview {
+    background: #f8fafc;
+    border-radius: 20px;
+}

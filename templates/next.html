@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}تم الإرسال بنجاح{% endblock %}
+
+{% block content %}
+<div class="app-bar app-bar-red">
+    <button class="back-btn" onclick="location.href='/'">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+    <h1>المعهد العالي للعلوم الإدارية</h1>
+    <div style="width: 44px;"></div>
+</div>
+
+<div class="content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <div class="card" style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); width: 100%;">
+        <div style="margin: 30px 0;">
+            <div style="width: 100px; height: 100px; background: #16a34a; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <i class="fas fa-check" style="font-size: 55px; color: white;"></i>
+            </div>
+        </div>
+        
+        <h2 style="color: #166534; margin-bottom: 15px;">مرحبًا بكم في المعهد العالي للعلوم الإدارية ببلقاس!</h2>
+        
+        <p style="font-size: 18px; color: #15803d; margin: 20px 0;">
+            <i class="fas fa-check-circle"></i> تم إرسال بياناتك بنجاح
+        </p>
+        
+        <p style="color: #475569;">شكرًا لاستخدامك تطبيقنا، سيتم التواصل معك قريبًا</p>
+    </div>
+    
+    <button class="btn btn-danger" onclick="location.href='/'" style="margin-top: 20px;">
+        <i class="fas fa-home"></i> العودة للصفحة الرئيسية
+    </button>
+    
+    <div style="margin-top: 30px;">
+        <p style="color: #94a3b8; font-size: 12px;">نسعد بخدمتك دائمًا</p>
+    </div>
+</div>
+{% endblock %}

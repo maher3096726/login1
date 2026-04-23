@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}تفاصيل السؤال{% endblock %}
+
+{% block content %}
+<div class="app-bar">
+    <button class="back-btn" onclick="history.back()">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+    <h1>تفاصيل السؤال</h1>
+    <div style="width: 40px;"></div>
+</div>
+
+<div class="content">
+    <!-- السؤال -->
+    <div class="card" style="border-right: 4px solid #1976d2;">
+        <h3 style="color: #1976d2;">السؤال:</h3>
+        <p style="font-size: 18px; font-weight: bold;">{{ question }}</p>
+    </div>
+    
+    <!-- الإجابة -->
+    <div class="card" style="border-right: 4px solid #388e3c;">
+        <h3 style="color: #388e3c;">الإجابة:</h3>
+        <div class="answer-content">{{ answer|safe }}</div>
+    </div>
+    
+    <!-- معلومات إضافية -->
+    <div class="card" style="border-right: 4px solid #f57c00;">
+        <h3 style="color: #f57c00;">معلومات إضافية:</h3>
+        <p><i class="fas fa-phone" style="color: #1976d2;"></i> هاتف المعهد: 2345678-050</p>
+        <p><i class="fas fa-envelope" style="color: #388e3c;"></i> البريد الإلكتروني: info@himsb.edu.eg</p>
+        <p><i class="fas fa-map-marker-alt" style="color: #d32f2f;"></i> العنوان: بلقاس - محافظة الدقهلية - مصر</p>
+        <p><i class="fas fa-globe" style="color: #9c27b0;"></i> الموقع: https://himsb.edu.eg</p>
+    </div>
+    
+    <!-- أزرار التنقل -->
+    <div class="button-row" style="flex-direction: column; align-items: center;">
+        <button class="btn btn-primary" onclick="window.open('https://himsb.edu.eg', '_blank')">
+            <i class="fas fa-globe"></i> زيارة الموقع الرسمي
+        </button>
+        <button class="btn btn-success" onclick="history.back()">
+            <i class="fas fa-arrow-right"></i> الرجوع للأسئلة الشائعة
+        </button>
+        <button class="btn btn-danger" onclick="location.href='/'">
+            <i class="fas fa-home"></i> العودة للصفحة الرئيسية
+        </button>
+    </div>
+</div>
+{% endblock %}

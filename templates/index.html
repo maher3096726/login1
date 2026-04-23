@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية - المعهد العالي للعلوم الإدارية{% endblock %}
+
+{% block content %}
+<div class="app-bar app-bar-red">
+    <div style="width: 40px;"></div>
+    <h1>المعهد العالي للعلوم الإدارية ببلقاس</h1>
+    <div style="width: 40px;"></div>
+</div>
+
+<div class="content">
+    <div class="text-center" style="display: flex; justify-content: center; margin: 20px 0;">
+        <img src="{{ url_for('static', filename='images/images.png') }}" alt="شعار المعهد" style="max-width: 60%; border-radius: 20px;">
+    </div>
+    
+    <p class="text-center" style="font-size: 16px; margin-bottom: 30px; color: #555; display: flex; justify-content: center; margin: 20px 0;">
+        اهلاً بكم في تطبيقنا لتقديم افضل الخدمات لطلاب المعهد العالي للعلوم الإدارية ببلقاس
+    </p>
+    
+    <div class="button-row">
+        <button class="btn btn-danger" onclick="location.href='/login'">
+            <i class="fas fa-edit"></i> تسجيل البيانات
+        </button>
+        <button class="btn btn-danger" onclick="location.href='/sersh'">
+            <i class="fas fa-info-circle"></i> معلومات المعهد
+        </button>
+    </div>
+    
+    <div class="button-row">
+        <button class="btn btn-warning" onclick="location.href='/location'">
+            <i class="fas fa-map-marker-alt"></i> لوكيشن المعهد
+        </button>
+    </div>
+    
+    <div class="card" style="margin-top: 20px;">
+        <p style="text-align: center; margin-bottom: 15px;">لا تتردد في التواصل معنا إذا كان لديك أي أسئلة أو استفسارات. نحن هنا لمساعدتك!</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+            <span style="font-size: 12px;">للتواصل مع المطور:</span>
+            <button class="btn btn-danger" onclick="window.open('https://wa.me/201070181093', '_blank')" style="padding: 8px 16px; font-size: 12px;">
+                <i class="fab fa-whatsapp"></i> ENG/MAHER AHMED
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
